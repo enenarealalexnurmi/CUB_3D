@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 03:39:26 by enena             #+#    #+#             */
-/*   Updated: 2021/11/28 03:51:14 by enena            ###   ########.fr       */
+/*   Updated: 2021/12/16 20:10:45 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ static t_bool	check_all_settings(t_settings *settings)
 		return (error_handler(err_missing_setting));
 }
 
-t_bool  parser(t_game_master *gm, int fd, char **line)
+t_bool	parser(t_game_master *gm, int fd, char **line)
 {
-    if (!(read_part(gm->sl, fd, line, &analyze_setting))
+	if (!(read_part(gm->sl, fd, line, &analyze_setting))
 		|| !(init_map(&gm->map, line)) || !(check_all_settings(gm->sl))
 		|| !(read_part(gm->map, fd, line, &analyze_map))
 		|| !(convert_map_player_init(gm->map, &gm->pl)))
-        return (true);
-    else
-        return (false);
+		return (true);
+	else
+		return (false);
 }

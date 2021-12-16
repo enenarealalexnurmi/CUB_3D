@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 13:49:00 by enena             #+#    #+#             */
-/*   Updated: 2021/03/14 06:05:30 by enena            ###   ########.fr       */
+/*   Updated: 2021/12/16 23:03:26 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "structs.h"
 # include "mlx.h"
 
-typedef enum	e_error
+typedef enum e_error
 {
 	err_wrong_count_fields = 1,
 	err_wrong_information,
@@ -55,12 +55,12 @@ typedef enum	e_error
 	wrn_resolution_height_increased,
 	wrn_resolution_width_reduced,
 	wrn_resolution_height_reduced,
-	all
-}				t_error;
+	ALL_ERROR
+}	t_error;
 
 static int		g_error_callback;
 
-static char		*g_err_wrn_strings[all] = {
+static char		*g_err_wrn_strings[ALL_ERROR] = {
 	" wrong count information fields",
 	" in fields has wrong information",
 	" texture has wrong extention. Only .xpm and .png allowed",

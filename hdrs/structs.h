@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 20:54:22 by enena             #+#    #+#             */
-/*   Updated: 2021/03/14 05:56:24 by enena            ###   ########.fr       */
+/*   Updated: 2021/12/16 22:49:39 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /*
 ** Struct for data image
 */
-typedef struct	s_image
+typedef struct s_image
 {
 	void	*img;
 	char	*addr;
@@ -28,29 +28,29 @@ typedef struct	s_image
 	int		endian;
 	int		width;
 	int		height;
-}				t_image;
+}	t_image;
 
-typedef struct	s_resolution
+typedef struct s_resolution
 {
 	int	width;
 	int	height;
-}				t_resolution;
+}	t_resolution;
 
-typedef enum	e_side
+typedef enum e_side
 {
 	west,
 	north,
 	east,
 	south
-}				t_side;
+}	t_side;
 
-typedef enum	e_type_wall
+typedef enum e_type_wall
 {
 	e_w,
 	n_s
-}				t_type_wall;
+}	t_type_wall;
 
-enum			e_setting_name
+enum e_setting_name
 {
 	resolution,
 	no_texture,
@@ -65,7 +65,7 @@ enum			e_setting_name
 typedef t_bool	(*t_set_setting)(void *, char **);
 typedef void	(*t_destroyer)(void *);
 
-typedef struct	s_setting_link
+typedef struct s_setting_link
 {
 	t_bool			is_set;
 	char			idntf[SIZE_IDNTF_SETTING];
@@ -74,24 +74,24 @@ typedef struct	s_setting_link
 	t_set_setting	set;
 	t_destroyer		destroy;
 	void			*get;
-}				t_setting_link;
+}	t_setting_link;
 
-typedef struct	s_settings
+typedef struct s_settings
 {
 	t_bool			is_all_set;
 	t_setting_link	*link;
-}				t_settings;
+}	t_settings;
 
-typedef struct	s_map_list
+typedef struct s_map_list
 {
 	size_t		bgn_ind;
 	size_t		end_ind;
 	size_t		len;
 	size_t		listsize;
 	t_list		*list;
-}				t_map_list;
+}	t_map_list;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	t_bool		player_set;
 	char		**yx;
@@ -99,9 +99,9 @@ typedef struct	s_map
 	ssize_t		mx_x;
 	ssize_t		count_sprite;
 	t_map_list	*tmp;
-}				t_map;
+}	t_map;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	float		x;
 	float		y;
@@ -111,9 +111,9 @@ typedef struct	s_player
 	float		pln_y;
 	float		strafe_l_x;
 	float		strafe_l_y;
-}				t_player;
+}	t_player;
 
-enum			e_key_name
+enum e_key_name
 {
 	w,
 	a,
@@ -125,7 +125,7 @@ enum			e_key_name
 	space
 };
 
-enum			e_table_cs_tn
+enum e_table_cs_tn
 {
 	cosine,
 	sinus,
@@ -133,34 +133,34 @@ enum			e_table_cs_tn
 	cotangent
 };
 
-typedef enum	e_dir_rotate
+typedef enum e_dir_rotate
 {
 	counter_clock,
 	clockwise
-}				t_dir_rotate;
+}	t_dir_rotate;
 
-typedef enum	e_key_status
+typedef enum e_key_status
 {
 	released,
 	pressed
-}				t_key_status;
+}	t_key_status;
 
 typedef int		(*t_key_react)(void *);
 
-typedef struct	s_key
+typedef struct s_key
 {
 	int				code;
 	t_key_status	status;
 	t_key_react		react;
-}				t_key;
+}	t_key;
 
-typedef struct	s_keys
+typedef struct s_keys
 {
 	t_bool	any_is_pressed;
 	t_key	*key;
-}				t_keys;
+}	t_keys;
 
-typedef struct	s_ray
+typedef struct s_ray
 {
 	ssize_t		ind;
 	int			x;
@@ -182,9 +182,9 @@ typedef struct	s_ray
 	int			last_bot;
 	t_bool		hit;
 	t_type_wall	side;
-}				t_ray;
+}	t_ray;
 
-typedef struct	s_wall
+typedef struct s_wall
 {
 	t_image		*texture;
 	int			height;
@@ -193,9 +193,9 @@ typedef struct	s_wall
 	float		x;
 	float		y;
 	float		step_y;
-}				t_wall;
+}	t_wall;
 
-typedef struct	s_sprite
+typedef struct s_sprite
 {
 	float		x;
 	float		y;
@@ -208,20 +208,20 @@ typedef struct	s_sprite
 	int			y_draw_end;
 	float		perp_dist;
 	float		dist_pow2;
-}				t_sprite;
+}	t_sprite;
 
-typedef struct	s_render
+typedef struct s_render
 {
 	t_ray		*rays;
 	t_wall		*wall;
 	t_sprite	**sprites;
 	t_bool		need;
 	float		cubed;
-}				t_render;
+}	t_render;
 /*
 ** Main structure
 */
-typedef struct	s_game_master
+typedef struct s_game_master
 {
 	void			*mlx;
 	void			*win;
@@ -234,6 +234,6 @@ typedef struct	s_game_master
 	t_image			*frame;
 	float			**table;
 	t_render		*render;
-}				t_game_master;
+}	t_game_master;
 
 #endif

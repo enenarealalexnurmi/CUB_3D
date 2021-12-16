@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 19:33:47 by enena             #+#    #+#             */
-/*   Updated: 2021/03/14 05:13:22 by enena            ###   ########.fr       */
+/*   Updated: 2021/12/16 22:52:01 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,52 +55,43 @@
 #  define BUFFER_SIZE 65534
 # endif
 
-typedef struct	s_buf
+typedef struct s_buf
 {
 	int		ret;
 	char	*buf;
-}				t_buf;
-/*
-** Redefinition UNSIGNED type for shorter cast
-*/
-typedef	signed char				t_schar;
+}	t_buf;
+
+// Redefinition UNSIGNED type for shorter cast
+
+// definition {signed char}
+typedef signed char				t_schar;
+// definition {unsigned char}
 typedef unsigned char			t_uchar;
+// definition {unsigned short int}
 typedef unsigned short int		t_usint;
+// definition {unsigned int}
 typedef unsigned int			t_uint;
+// definition {unsigned long int}
 typedef unsigned long int		t_ulint;
+// definition {unsigned long long int}
 typedef unsigned long long int	t_ullint;
 
-/*
-** My type and macros boolean for Norme like <stdbool> but unsigned char
-*/
-typedef enum	e_bool
+// My type definition boolean for Norme like <stdbool> but use enum
+typedef enum e_bool
 {
 	false = 0,
 	true = 1
-}				t_bool;
+}	t_bool;
 
-/*
-** Basic style for list structure: Singly linked list ~ SLL
-*/
-typedef struct	s_list
+// Basic style for list structure: Singly linked list ~ SLL
+typedef struct s_list
 {
 	struct s_list	*next;
 	void			*content;
-}				t_list;
+}	t_list;
 
-/*
-** Struct for convert double
-*/
-typedef struct	s_binary_d
-{
-	char			sign;
-	t_ullint		mant;
-	long long int	exp;
-}				t_binary_d;
+// Family of list-based functions
 
-/*
-** Family of list-based functions
-*/
 t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 int				ft_lstsize(t_list *lst);
@@ -110,10 +101,9 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-														void (*del)(void *));
-/*
-** Function's to convert string to number like real atoi, atol, atoll <stdlib>
-*/
+					void (*del)(void *));
+// Function's to convert string to number like real atoi, atol, atoll <stdlib>
+
 int				ft_atoi(const char *str);
 long int		ft_atol(const char *str);
 long long int	ft_atoll(const char *str);
@@ -144,9 +134,11 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 void			ft_lower(char *s);
 void			ft_upper(char *s);
+
 /*
 ** Comment
 */
+
 void			*ft_sec_free(void *p);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -171,25 +163,14 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strnstr(const char *haystack, const char *needle,
-																	size_t len);
+					size_t len);
 char			*ft_strrchr(const char *s, int c);
-size_t			ft_charcount(const char *s, int c);
-/*
-** Functions to convert wide character/string in MB (UTF-8)
-*/
-char			*ft_took_next_char(char *mbs);
-size_t			ft_get_charcount(size_t cnt_byte, char *mbs);
-size_t			ft_mblen(char *mbc);
-size_t			ft_wclen(wchar_t wc);
-size_t			ft_wstrlen_byte(wchar_t *wstring);
-wchar_t			ft_mbtowc(char *mbc);
-char			*ft_wctomb(wchar_t src, char *dest);
-char			*ft_wcstombs(wchar_t *wstring);
 
 /*
 ** Own function to write output
 */
-typedef enum	e_text_attr
+
+typedef enum e_text_attr
 {
 	DEFAULT_ALL,
 	BOLD,
@@ -217,49 +198,43 @@ typedef enum	e_text_attr
 	BG_PURPLE,
 	BG_CYAN,
 	BG_GRAY
-}				t_text_attr;
+}	t_text_attr;
 
 t_bool			ft_set_output_attr(int fd, t_text_attr attr);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putchar_fd(char *c, int fd);
 size_t			ft_putstr_fd(char *s, int fd);
-/*
-** Functions to strings arithmetic
-*/
-void			ft_sumnumstr(char *sum, char *add);
-void			ft_mulnumstr(char *comp, char *mult);
-char			*ft_pownumstr(char *base, char *pow);
-char			*ft_halfnumstr(char *quo);
-/*
-** Utils for dtoa
-*/
-t_binary_d		ft_getmemdouble(double dnum);
-char			*ft_doprec_fstr(char *num, int prec);
+
 /*
 ** Swap utils
 */
+
 void			ft_swap_p(void **a, void **b);
 void			ft_swap_ch(char *a, char *b);
 t_bool			ft_swap(void *v1, void *v2, size_t size);
+
 /*
 ** Convert signed(all) to unsigned (size_t)
 */
+
 size_t			ft_stous(long long int signd);
+
 /*
 ** GNL
 */
+
 int				ft_get_next_line(int fd, char **line);
 
-typedef struct	s_bitmapfileheader
+typedef struct s_bitmapfileheader
 {
 	char			type[2];
 	unsigned int	size;
 	unsigned int	reserved;
 	unsigned int	offset;
-}				t_bitmapfileheader;
+}	t_bitmapfileheader;
 
-typedef struct	s_bitmapinfo
+typedef struct s_bitmapinfo
 {
 	int		size;
 	int		width;
@@ -272,27 +247,29 @@ typedef struct	s_bitmapinfo
 	int		ypelspermeter;
 	int		clrused;
 	int		clrimportant;
-}				t_bitmapinfo;
+}	t_bitmapinfo;
 
 /*
 ** Sructure for setting/storage bmpfile image
 */
-typedef struct	s_bmpfile
+typedef struct s_bmpfile
 {
 	t_bitmapfileheader	fileheader;
 	t_bitmapinfo		info;
 	char				*data;
-}				t_bmpfile;
+}	t_bmpfile;
 
 /*
 ** My functions ((!!read!!))/write bmp file ((!!in!!))/from setted structure
 ** ((!!COMING SOON!!))
 */
+
 t_bool			ft_write_bmp(int fd, t_bmpfile *bitmap);
 
 /*
 ** Check extn
 */
+
 t_bool			ft_check_extention(const char *name, const char *extn);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 23:58:20 by enena             #+#    #+#             */
-/*   Updated: 2021/03/14 00:06:27 by enena            ###   ########.fr       */
+/*   Updated: 2021/12/16 22:57:57 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,14 @@ void			*mlx_init(void);
 */
 
 void			*mlx_new_window(void *mlx_ptr, int size_x, int size_y,
-				char *title);
+					char *title);
 /*
 **  return void *0 if failed
 */
 
 int				mlx_clear_window(void *mlx_ptr, void *win_ptr);
 int				mlx_pixel_put(void *mlx_ptr, void *win_ptr, int x, int y,
-				int color);
+					int color);
 /*
 **  origin for x & y is top left corner of the window
 **  y down is positive
@@ -83,20 +83,20 @@ int				mlx_pixel_put(void *mlx_ptr, void *win_ptr, int x, int y,
 */
 
 void			*mlx_new_image(void *mlx_ptr, int width, int height,
-				int setvalue);
+					int setvalue);
 /*
 **  return void *0 if failed
 */
 
 char			*mlx_get_data_addr(void *img_ptr, int *bits_per_pixel,
-				int *size_line, int *endian);
+					int *size_line, int *endian);
 /*
 **  endian : 0 = sever X is little endian, 1 = big endian
 **  endian : useless on macos, client and graph framework have the same endian
 */
 
 int				mlx_put_image_to_window(void *mlx_ptr, void *win_ptr,
-				void *img_ptr, int x, int y);
+					void *img_ptr, int x, int y);
 
 unsigned int	mlx_get_color_value(void *mlx_ptr, int color);
 /*
@@ -122,13 +122,13 @@ int				mlx_loop(void *mlx_ptr);
 */
 
 int				mlx_string_put(void *mlx_ptr, void *win_ptr, int x, int y,
-				int color, char *string);
+					int color, char *string);
 void			*mlx_xpm_to_image(void *mlx_ptr, char **xpm_data,
-				int *width, int *height);
+					int *width, int *height);
 void			*mlx_xpm_file_to_image(void *mlx_ptr, char *filename,
-				int *width, int *height);
+					int *width, int *height);
 void			*mlx_png_file_to_image(void *mlx_ptr, char *file, int *width,
-				int *height);
+					int *height);
 int				mlx_destroy_window(void *mlx_ptr, void *win_ptr);
 int				mlx_destroy_image(void *mlx_ptr, void *img_ptr);
 /*
@@ -137,9 +137,9 @@ int				mlx_destroy_image(void *mlx_ptr, void *img_ptr);
 */
 
 int				mlx_hook(void *win_ptr, int x_event, int x_mask,
-				int (*funct)(), void *param);
-int				mlx_mouse_hide();
-int				mlx_mouse_show();
+					int (*funct)(), void *param);
+int				mlx_mouse_hide(void);
+int				mlx_mouse_show(void);
 int				mlx_mouse_move(void *win_ptr, int x, int y);
 int				mlx_mouse_get_pos(void *win_ptr, int *x, int *y);
 int				mlx_do_key_autorepeatoff(void *mlx_ptr);

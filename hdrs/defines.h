@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 21:28:01 by enena             #+#    #+#             */
-/*   Updated: 2021/03/14 05:55:15 by enena            ###   ########.fr       */
+/*   Updated: 2021/12/16 23:01:58 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@
 # define CNT_SETTING			8
 # define CNT_KEY_REACT			7
 # define LEN_IDNTF_SETTING		2
+//next = prev + 1
+# define SIZE_IDNTF_SETTING		3
 # define ANGLE_DEGREE_ROTATE	1
-# define SIZE_IDNTF_SETTING		(LEN_IDNTF_SETTING + 1)
 # define MIN_WIDTH				50
 # define MIN_HEIGHT				50
 # define VALID_FILL_MAP_CHAR	" "
