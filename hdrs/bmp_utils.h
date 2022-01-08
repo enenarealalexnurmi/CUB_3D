@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 21:31:21 by enena             #+#    #+#             */
-/*   Updated: 2021/03/09 21:31:10 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/05 14:24:57 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@
 # define BMP_MAX_DIMENSION	10000
 
 t_bool	save_image_as_bmp(t_image *data, const char *name);
+t_bool	add_name_image_resolution(char **filename, t_image *data);
+t_bool	put_name_screenshot(char **dst, const char *map, t_image *data);
+void	do_bmp_from_frame(t_game_master *gm, const char *map_name);
 
 #endif

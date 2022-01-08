@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 20:47:43 by enena             #+#    #+#             */
-/*   Updated: 2021/02/28 07:05:56 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/05 17:47:17 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@
 # include "initialization.h"
 # include "general.h"
 # include "instruments.h"
-# include "naming_utils.h"
 # include "bmp_utils.h"
+
 #endif

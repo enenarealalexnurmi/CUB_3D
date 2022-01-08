@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 15:34:35 by enena             #+#    #+#             */
-/*   Updated: 2021/12/16 22:02:45 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/08 09:20:22 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ t_bool	set_resolution(void *plink, char **tab)
 		return (setting_error(link->idntf, err_wrong_information));
 	width = ft_atoll(tab[1]);
 	height = ft_atoll(tab[2]);
-	link->get = malloc(sizeof(t_resolution));
+	link->get = malloc(sizeof(t_res));
 	if (!(link->get))
 		return (error_handler(err_alloc_fail));
-	((t_resolution *)link->get)->width = restr_value(width);
-	((t_resolution *)link->get)->height = restr_value(height);
+	((t_res *)link->get)->width = restr_value(width);
+	((t_res *)link->get)->height = restr_value(height);
 	link->destroy = &free_resolution;
 	return (link->is_set = true);
 }

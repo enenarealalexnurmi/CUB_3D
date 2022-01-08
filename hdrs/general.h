@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 05:13:40 by enena             #+#    #+#             */
-/*   Updated: 2021/03/09 07:52:47 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/08 18:53:18 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include "structs.h"
 # include "error_handling.h"
 # include "instruments.h"
-
-void	do_bmp_from_frame(t_game_master *gm, const char *map_name);
 
 int		key_press(int keycode, t_keys *keys);
 int		key_release(int keycode, t_keys *keys);

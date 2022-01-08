@@ -6,17 +6,19 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 15:51:01 by enena             #+#    #+#             */
-/*   Updated: 2021/11/28 04:19:01 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/08 16:07:22 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "initialization.h"
 
-static void	init_key(t_key *key, int keycode, t_key_react react)
+static void	init_key(t_key *key, int keycode, t_key_react react, t_bool lockbl)
 {
 	key->status = released;
 	key->code = keycode;
 	key->react = react;
+	key->lockable = lockbl;
+	key->reacted = false;
 }
 
 t_bool	keys_init(t_keys **keys)
@@ -39,11 +41,11 @@ t_bool	keys_init(t_keys **keys)
 
 void	init_keys_group_1(t_key *keys)
 {
-	init_key(&keys[w], 13, &move_forward);
-	init_key(&keys[a], 0, &strafe_left);
-	init_key(&keys[s], 1, &move_backward);
-	init_key(&keys[d], 2, &strafe_right);
-	init_key(&keys[left], 123, &rotate_counter_clock);
-	init_key(&keys[right], 124, &rotate_clockwise);
-	init_key(&keys[esc], 53, &exit_ok);
+	init_key(&keys[w], 13, &move_forward, false);
+	init_key(&keys[a], 0, &strafe_left, false);
+	init_key(&keys[s], 1, &move_backward, false);
+	init_key(&keys[d], 2, &strafe_right, false);
+	init_key(&keys[left], 123, &rotate_counter_clock, false);
+	init_key(&keys[right], 124, &rotate_clockwise, false);
+	init_key(&keys[esc], 53, &exit_ok, true);
 }

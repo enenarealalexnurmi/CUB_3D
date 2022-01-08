@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 21:28:01 by enena             #+#    #+#             */
-/*   Updated: 2021/12/16 23:01:58 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/08 20:11:55 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define TEXTURE_XPM_EXTN		".xpm"
 # define CNT_ARG				2
 # define CNT_FLAGS				1
-# define CNT_SETTING			8
+# define CNT_SETTING			7
 # define CNT_KEY_REACT			7
 # define LEN_IDNTF_SETTING		2
 //next = prev + 1
@@ -29,8 +29,7 @@
 # define MIN_HEIGHT				50
 # define VALID_FILL_MAP_CHAR	" "
 # define VALID_WALL_MAP_CHAR	"1"
-# define VALID_INSIDE_MAP_CHAR	"02"
-# define SPRITE_CHAR			"2"
+# define VALID_INSIDE_MAP_CHAR	"0"
 # define VALID_PLAYER_MAP_CHAR	"NSWE"
 # define MAP_CHAR_UNDER_PLAYER	'0'
 # define MAX_RENDER_DISTANCE	300

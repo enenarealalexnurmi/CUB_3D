@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 14:08:03 by enena             #+#    #+#             */
-/*   Updated: 2021/11/28 04:29:37 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/08 16:09:14 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,6 @@ static t_bool	check_closed_and_player_init(t_map *map, t_player **pl)
 				if (!(player_init(map, pl, y, x)))
 					return (false);
 			}
-			if (ft_strchr(SPRITE_CHAR, map->yx[y][x]))
-				map->count_sprite++;
 		}
 	}
 	return (true);

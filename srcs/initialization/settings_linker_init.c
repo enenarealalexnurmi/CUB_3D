@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 11:37:29 by enena             #+#    #+#             */
-/*   Updated: 2021/12/15 21:45:34 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/08 16:13:32 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ static void	init_links_group_1(t_setting_link *links)
 	init_setting_link(&links[so_texture], "SO", 2, &set_texture);
 	init_setting_link(&links[we_texture], "WE", 2, &set_texture);
 	init_setting_link(&links[ea_texture], "EA", 2, &set_texture);
-	init_setting_link(&links[s_texture], "S", 2, &set_texture);
 	init_setting_link(&links[floor_color], "F", 2, &set_color);
 	init_setting_link(&links[ceil_color], "C", 2, &set_color);
 }

@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 03:21:47 by enena             #+#    #+#             */
-/*   Updated: 2021/11/27 21:23:20 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/08 09:30:26 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ int	key_release(int keycode, t_keys *keys)
 	while (++i < CNT_KEY_REACT)
 	{
 		if (key[i].code == keycode)
+		{
 			key[i].status = released;
+			key[i].reacted = false;
+		}
 		all_released &= key[i].status == released;
 	}
 	keys->any_is_pressed = !(all_released);
@@ -57,7 +60,15 @@ int	key_check(t_game_master *gm)
 	key = gm->keys->key;
 	i = -1;
 	while (++i < CNT_KEY_REACT)
+	{
 		if (key[i].status == pressed)
-			key[i].react(gm);
+		{
+			if (!key[i].lockable || (key[i].lockable && (!(key[i].reacted))))
+			{
+				key[i].react(gm);
+				key[i].reacted = true;
+			}
+		}
+	}
 	return (0);
 }

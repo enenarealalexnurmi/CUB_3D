@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bmp_utils_bonus.h                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/09 21:31:21 by enena             #+#    #+#             */
+/*   Updated: 2022/01/08 17:40:00 by enena            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef BMP_UTILS_BONUS_H
+# define BMP_UTILS_BONUS_H
+# include <fcntl.h>
+# include "libft.h"
+# include "defines_bonus.h"
+# include "structs_bonus.h"
+# include "error_handling_bonus.h"
+# define BMP_EXTN			".bmp"
+# define BMP_IDENTIFIER		"BM"
+# define BMP_BYTEPERPIXEL	4
+# define BMP_SIZEOFHEADER	54
+# define BMP_SIZEOFINFO		40
+# define BMP_RESERVED		0
+# define BMP_PLANES			1
+# define BMP_BITPERPIXEL	32
+# define BMP_COMPRESSION	0
+# define BMP_SIZEIMAGE		0
+# define BMP_XPELSPERMETER	0
+# define BMP_YPELSPERMETER	0
+# define BMP_CLRUSED		0
+# define BMP_CLRIMPORTANT	0
+# define BMP_MAX_DIMENSION	10000
+
+t_bool	save_image_as_bmp(t_image *data, const char *name);
+t_bool	add_name_image_resolution(char **filename, t_image *data);
+t_bool	put_name_screenshot(char **dst, const char *map, t_image *data);
+void	do_bmp_from_frame(t_game_master *gm, const char *map_name);
+
+#endif

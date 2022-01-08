@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
+/*   By: enena <enena@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 19:33:47 by enena             #+#    #+#             */
-/*   Updated: 2021/11/25 21:23:14 by enena            ###   ########.fr       */
+/*   Updated: 2021/12/18 19:27:30 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ void			*ft_sec_free(void *p);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
+size_t			ft_charcount(const char *s, int c);
 char			*ft_zerroc(size_t count);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);

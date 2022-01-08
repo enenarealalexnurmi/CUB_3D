@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 06:04:57 by enena             #+#    #+#             */
-/*   Updated: 2021/11/27 21:49:54 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/08 18:53:43 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ static void	hitting_ray(t_ray *ray, t_game_master *gm)
 void	render_frame(t_game_master *gm)
 {
 	ssize_t	x;
-	ssize_t	i;
 
 	x = -1;
 	while (++x < gm->frame->width)
@@ -75,11 +74,5 @@ void	render_frame(t_game_master *gm)
 		gm->render->rays[x].last_top = gm->render->rays[x].wall_top;
 		gm->render->rays[x].last_bot = gm->render->rays[x].wall_bot;
 	}
-	calculate_sprites(&(gm->render->sprites), gm->pl, gm->map->count_sprite,
-		gm->frame);
-	i = -1;
-	while (++i < gm->map->count_sprite)
-		draw_sprite(gm->render->sprites[i], gm->render->rays,
-			gm->sl->link[s_texture].get, gm->frame);
 	gm->render->need = false;
 }

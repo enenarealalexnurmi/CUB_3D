@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 17:24:57 by enena             #+#    #+#             */
-/*   Updated: 2021/12/15 21:13:25 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/08 16:10:04 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	map_setup(t_map *map)
 	map->yx = NULL;
 	map->mx_y = 0;
 	map->mx_x = 0;
-	map->count_sprite = 0;
 	map->tmp->bgn_ind = 0;
 	map->tmp->end_ind = 0;
 	map->tmp->len = 0;
@@ -86,7 +85,7 @@ static void	took_param(const char *base, t_map_list *ml)
 	calc_end_ind = end - base;
 	if (!(ml->listsize) || ((ml->listsize) && (ml->bgn_ind >= calc_bgn_ind)))
 		ml->bgn_ind = calc_bgn_ind;
-	if (!(ml->listsize) || ((ml->listsize) && (ml->bgn_ind >= calc_bgn_ind)))
+	if (!(ml->listsize) || ((ml->listsize) && (ml->end_ind <= calc_end_ind)))
 		ml->end_ind = calc_end_ind;
 	ml->len = ml->end_ind - ml->bgn_ind + 1;
 }

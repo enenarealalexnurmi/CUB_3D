@@ -6,7 +6,7 @@
 /*   By: enena <enena@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 20:54:22 by enena             #+#    #+#             */
-/*   Updated: 2021/12/16 22:49:39 by enena            ###   ########.fr       */
+/*   Updated: 2022/01/08 16:19:46 by enena            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_resolution
 {
 	int	width;
 	int	height;
-}	t_resolution;
+}	t_res;
 
 typedef enum e_side
 {
@@ -57,7 +57,6 @@ enum e_setting_name
 	so_texture,
 	we_texture,
 	ea_texture,
-	s_texture,
 	floor_color,
 	ceil_color
 };
@@ -93,12 +92,12 @@ typedef struct s_map_list
 
 typedef struct s_map
 {
-	t_bool		player_set;
-	char		**yx;
-	ssize_t		mx_y;
-	ssize_t		mx_x;
-	ssize_t		count_sprite;
-	t_map_list	*tmp;
+	t_bool			player_set;
+	char			**yx;
+	ssize_t			mx_y;
+	ssize_t			mx_x;
+	ssize_t			count_sprite;
+	t_map_list		*tmp;
 }	t_map;
 
 typedef struct s_player
@@ -121,8 +120,7 @@ enum e_key_name
 	d,
 	left,
 	right,
-	esc,
-	space
+	esc
 };
 
 enum e_table_cs_tn
@@ -152,6 +150,8 @@ typedef struct s_key
 	int				code;
 	t_key_status	status;
 	t_key_react		react;
+	t_bool			lockable;
+	t_bool			reacted;
 }	t_key;
 
 typedef struct s_keys
@@ -177,7 +177,7 @@ typedef struct s_ray
 	int			step_y;
 	int			last_top;
 	int			wall_top;
-	int			horizon;
+	int			*horizon;
 	int			wall_bot;
 	int			last_bot;
 	t_bool		hit;
@@ -195,45 +195,32 @@ typedef struct s_wall
 	float		step_y;
 }	t_wall;
 
-typedef struct s_sprite
-{
-	float		x;
-	float		y;
-	int			height;
-	int			width;
-	int			cntr;
-	int			x_draw_begin;
-	int			x_draw_end;
-	int			y_draw_begin;
-	int			y_draw_end;
-	float		perp_dist;
-	float		dist_pow2;
-}	t_sprite;
-
 typedef struct s_render
 {
 	t_ray		*rays;
 	t_wall		*wall;
-	t_sprite	**sprites;
 	t_bool		need;
 	float		cubed;
+	int			horizon;
 }	t_render;
 /*
 ** Main structure
 */
 typedef struct s_game_master
 {
-	void			*mlx;
-	void			*win;
-	char			*name;
-	t_settings		*sl;
-	t_map			*map;
-	t_player		*pl;
-	t_bool			save;
-	t_keys			*keys;
-	t_image			*frame;
-	float			**table;
-	t_render		*render;
+	void		*mlx;
+	void		*win;
+	char		*name;
+	t_settings	*sl;
+	t_map		*map;
+	t_player	*pl;
+	t_bool		save;
+	t_keys		*keys;
+	t_image		*frame;
+	float		**table;
+	t_render	*render;
+	int			mouse_x;
+	int			mouse_y;
 }	t_game_master;
 
 #endif
